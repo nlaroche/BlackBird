@@ -220,9 +220,9 @@ void BlackBirdAudioProcessor::loadPreset(const String &presetName) {
     if (presetFile.loadFileAsData(data)) {
         setStateInformation(data.getData(), (int) data.getSize());
     } else {
-        AlertWindow::showMessageBoxAsync(AlertWindow::WarningIcon,
+       /* AlertWindow::showMessageBoxAsync(AlertWindow::WarningIcon,
                                          TRANS("Error whilst loading"),
-                                         TRANS("Couldn't read from the specified file!"));
+                                         TRANS("Couldn't read from the specified file!"));*/
     };
 
 }

@@ -17,15 +17,12 @@ EditorHeader::EditorHeader(BlackBirdAudioProcessorEditor &editor) : editor(edito
     setLookAndFeel(&lookAndFeel);
 
     presetsList.addItemList(editor.processor.getPresetsNames(), 1);
-
     presetsList.setSelectedId(1);
     presetsList.setJustificationType(Justification::centred);
-
     presetsList.setColour(PopupMenu::backgroundColourId, Colours::transparentBlack);
 
     presetsList.onChange = [&]() {
         auto selectedPresetIndex = presetsList.getSelectedItemIndex();
-
         editor.processor.silentlySetCurrentProgram(selectedPresetIndex);
     };
 
@@ -54,7 +51,7 @@ EditorHeader::EditorHeader(BlackBirdAudioProcessorEditor &editor) : editor(edito
 
     addAndMakeVisible(nextPresetButton);
     addAndMakeVisible(savePresetButton);
-
+    /*
     savePresetButton.onClick = [this, &editor] {
         FileChooser fc(("Save current preset"), editor.processor.getPresetsDirectory(), "*.BlackBird");
 
@@ -72,7 +69,7 @@ EditorHeader::EditorHeader(BlackBirdAudioProcessorEditor &editor) : editor(edito
                 updatePresetsList(newPreset);
             }
         }
-    };
+    };*/
 
     editor.processor.onProgramChange = [this](int index) {
         presetsList.setSelectedItemIndex(index);
